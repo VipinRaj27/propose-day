@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff758f, #ffb3c6);
+  overflow: hidden;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1;
+}
+
+/* Card */
+.card {
+  position: relative;
+  z-index: 5;
+  background: rgba(255,255,255,0.97);
+  padding: 28px;
+  border-radius: 22px;
+  width: 96%;
+  max-width: 480px;
+  text-align: center;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+  animation: fadeIn 1.5s ease;
+}
+
+h1 {
+  color: #c9184a;
+}
+
+.name span {
+  color: #b5179e;
+  font-weight: 600;
+}
+
+.intro {
+  margin: 18px 0;
+  font-size: 16px;
+  color: #444;
+}
+
+button {
+  padding: 12px 26px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ff4d6d, #ff758f);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(0.4);
+}
+
+/* Proposal */
+#proposal {
+  display: none;
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.8s ease;
+}
+
+#proposal.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#proposal h2 {
+  margin-top: 15px;
+  color: #c9184a;
+}
+
+/* Action buttons */
+.actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.actions .yes {
+  background: linear-gradient(45deg, #ff4d6d, #ff8fab);
+}
+
+.actions .no {
+  background: #ddd;
+  color: #444;
+}
+
+/* Valentine Timer */
+.valentine-timer {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px dashed #ffb3c6;
+}
+
+.timer-title {
+  font-size: 14px;
+  color: #b5179e;
+}
+
+#valentineTimer {
+  font-size: 16px;
+  font-weight: bold;
+  color: #c9184a;
+}
+
+/* Floating hearts */
+#heart-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.heart {
+  position: absolute;
+  font-size: 22px;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(100vh); opacity: 0; }
+  to { transform: translateY(-20vh); opacity: 1; }
+}
+
+/* YES explosion */
+.explode-heart {
+  position: fixed;
+  font-size: 26px;
+  pointer-events: none;
+  animation: explode 1.2s ease-out forwards;
+  z-index: 20;
+}
+
+@keyframes explode {
+  to {
+    transform: translateY(-100px) scale(2);
+    opacity: 0;
+  }
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  font-size: 20px;
+  animation: confettiFall 3s linear forwards;
+  z-index: 20;
+}
+
+@keyframes confettiFall {
+  from { transform: translateY(0) rotate(0deg); opacity: 1; }
+  to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-40%); }
+  to { opacity: 1; transform: translateY(-50%); }
+}
